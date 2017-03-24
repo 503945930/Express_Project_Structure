@@ -1,0 +1,51 @@
+{
+  "name": "APAC_Yedian_Operator_Core",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "cross-env NODE_ENV=development node app.js",
+    "serve": "cross-env NODE_ENV=production  pm2 app.js",
+    "staging": "cross-env NODE_ENV=staging  pm2 app.js",
+    "test": "./node_modules/.bin/ava --timeout 200000 test",
+    "commit": "commit-wizard"
+  },
+  "dependencies": {
+    "body-parser": "~1.16.0",
+    "co": "^4.6.0",
+    "config": "^1.25.1",
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.1",
+    "cross-env": "^3.1.4",
+    "debug": "~2.6.0",
+    "dotenv": "^4.0.0",
+    "express": "~4.14.1",
+    "glob": "^7.1.1",
+    "lodash": "^4.17.4",
+    "log4js": "^1.1.1",
+    "method-override": "^2.3.7",
+    "morgan": "~1.7.0",
+    "mysql": "^2.13.0",
+    "request": "^2.80.0",
+    "sequelize": "^3.30.2",
+    "serve-favicon": "~2.3.2"
+  },
+  "devDependencies": {
+    "ava": "^0.18.2",
+    "pre-git": "^3.14.0",
+    "standard": "^9.0.2"
+  },
+  "config": {
+    "pre-git": {
+      "commit-msg": "",
+      "pre-commit": [
+        "npm run standard",
+        "npm test",
+        "git add ."
+      ],
+      "pre-push": [],
+      "post-commit": [],
+      "post-checkou": [],
+      "post-merge": []
+    }
+  }
+}
