@@ -1,0 +1,11 @@
+{
+  "apps" : [{
+    "name"        : "Express_Project_Structure",
+    "script"      : "./index.js",
+    "instances" : "max",
+    "watch"       : false,
+    "exec_interpreter" : "node",
+  	"exec_mode"        : "cluster",
+    "ignore_watch":["cdn","logs","*.log",".git","node_modules"]
+  }]
+}
