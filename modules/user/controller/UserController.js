@@ -5,12 +5,14 @@ import BaseControler from '../../../core/controller/Base'
  *
  */
 class UserController extends BaseControler {
-  constructor (...args) {
-    super()
-    /// /this.test = 'test'
-  }
+  // constructor (args) {
+  //   super(args)
+  // }
   ip () {
-    console.log(super.ip())
+    return super.ip()
+  }
+  getAll () {
+    this.http.res.send('getAll')
   }
 }
 

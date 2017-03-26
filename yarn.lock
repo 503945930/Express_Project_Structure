@@ -2918,7 +2918,7 @@ lodash.restparam@^3.0.0:
   version "3.6.1"
   resolved "http://registry.npm.taobao.org/lodash.restparam/download/lodash.restparam-3.6.1.tgz#936a4e309ef330a7645ed4145986c85ae5b20805"
 
-lodash@3.10.1, lodash@^3.3.1:
+lodash@3.10.1, lodash@^3.10.1, lodash@^3.3.1:
   version "3.10.1"
   resolved "http://registry.npm.taobao.org/lodash/download/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
@@ -4125,6 +4125,12 @@ sort-keys@^1.1.1, sort-keys@^1.1.2:
   resolved "http://registry.npm.taobao.org/sort-keys/download/sort-keys-1.1.2.tgz#441b6d4d346798f1b4e49e8920adfba0e543f9ad"
   dependencies:
     is-plain-obj "^1.0.0"
+
+sort-route-addresses@^0.0.2:
+  version "0.0.2"
+  resolved "http://registry.npm.taobao.org/sort-route-addresses/download/sort-route-addresses-0.0.2.tgz#5274447d05c3d579842e2f9fc0ca3c99edfb197b"
+  dependencies:
+    lodash "^3.10.1"
 
 source-map-support@^0.4.0, source-map-support@^0.4.2:
   version "0.4.14"

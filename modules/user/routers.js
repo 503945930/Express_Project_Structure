@@ -1,4 +1,4 @@
-module.exports.routes = {
-  'get /user': 'UserController.getAllCourseType'
-
+module.exports = {
+  'get /user': 'UserController.getAll',
+  'get /user/:id': 'UserController.getAll'
 }
