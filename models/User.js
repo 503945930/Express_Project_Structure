@@ -1,4 +1,3 @@
-const config = require('config')
 
 module.exports = function (sequelize, DataTypes) {
   var Model = sequelize.define('User', {
@@ -13,7 +12,7 @@ module.exports = function (sequelize, DataTypes) {
       comment: ''
     }
   }, {
-    tableName: `${config.get('db_prefix')}_user`,
+    tableName: `ac_user`,
     classMethods: {
       associate: function (models) {
 

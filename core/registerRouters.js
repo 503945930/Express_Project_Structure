@@ -1,7 +1,6 @@
 const path = require('path')
 const glob = require('glob')
 const _ = require('lodash')
-const sortRouteAddresses = require('sort-route-addresses')
 const utils = require('./utils/')
 
 const routerOptions = {
@@ -9,7 +8,7 @@ const routerOptions = {
 }
 
 let defines = glob.sync('./modules/*/routers.js')
-console.log('defines', defines)
+
 /**
  * register all modules routers
  *
@@ -18,7 +17,7 @@ console.log('defines', defines)
 function register (app) {
   defines.forEach((item) => {
     let routerConfig = require(path.resolve(item))
-    let sortedRouteAddresses = sortRouteAddresses(_.keys(routerConfig))
+    let sortedRouteAddresses = _.keys(routerConfig)
     const router = require('express').Router(routerOptions)
     _.each(sortedRouteAddresses, function (address) {
       let target = routerConfig[address]
