@@ -4,11 +4,13 @@ const bodyParser = require('body-parser')
 const dotenv = require('dotenv').config(); // eslint-disable-line
 const log4js = require('log4js')
 const cors = require('cors')
+// const graphqlHTTP = require('express-graphql')
 const methodOverride = require('method-override')
 const router = require('./core/registerRouters')
+const APIOutputMiddleware = require('./middlewares/APIOutputMiddleware')
 
 const app = express()
-const bootstrap = require('./config/bootstrap')
+const bootstrap = require('./core/bootstrap')
 // load config
 bootstrap.init(app)
 // log config
@@ -24,6 +26,11 @@ app.use(cookieParser())
 app.use(log4js.connectLogger(logger, {level: log4js.levels.INFO}))
 // 此中间件可以模拟PUT、DELETE等http操作（express4.x中已经不再集成，如果将express升级到4.x需要安装并手动引入）
 app.use(methodOverride())
+// root /
+app.get('/', function (req, res) {
+  return res.send({'started': new Date()})
+})
+app.use(APIOutputMiddleware)
 
 router.register(app)
 

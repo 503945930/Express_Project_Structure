@@ -1,7 +1,7 @@
 {
   "apps" : [{
-    "name"        : "Express_Project_Structure",
-    "script"      : "./index.js",
+    "name"        : "APAC_Yedian_Operator_Core",
+    "script"      : "./bin/www",
     "instances" : "max",
     "watch"       : false,
     "exec_interpreter" : "node",

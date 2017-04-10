@@ -18,26 +18,30 @@ class sequelize {
     this.associate()
   }
   async associate () {
-    let sequelize = this.getConnection()
-    let models = {}
+    try {
+      let sequelize = this.getConnection()
+      let models = {}
 
-    let defines = glob.sync('*.js', {
-      root: '',
-      cwd: 'models/'
-    })
+      let defines = glob.sync('*.js', {
+        root: '',
+        cwd: 'models/'
+      })
    /// console.log('sequelize', sequelize)
     // console.log('defines', defines)
-    defines.forEach(function (define) {
-      let model = sequelize.import(path.resolve('models/' + define))
-      models[model.name] = model
-    })
-    Sequelize.models = models
-    _.forIn(models, function (model) {
-      if (model.associate) {
-        model.associate(models)
-      }
-    })
-    await sequelize.sync()
+      defines.forEach(function (define) {
+        let model = sequelize.import(path.resolve('models/' + define))
+        models[model.name] = model
+      })
+      Sequelize.models = models
+      _.forIn(models, function (model) {
+        if (model.associate) {
+          model.associate(models)
+        }
+      })
+      await sequelize.sync()
+    } catch (error) {
+
+    }
   }
 }
 

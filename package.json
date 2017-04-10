@@ -3,14 +3,14 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "cross-env NODE_ENV=development NODE_CONFIG_DIR=./config/env nodemon  bin/www --exec babel-node",
-    "serve": "cross-env NODE_ENV=production  pm2 app.js",
-    "staging": "cross-env NODE_ENV=staging  pm2 app.js",
-    "test": "./node_modules/.bin/ava --timeout 200000 test",
+    "start": "cross-env NODE_ENV=development NODE_CONFIG_DIR=./config/env  nodemon  bin/www --exec babel-node",
+    "serve": "cross-env NODE_ENV=production NODE_CONFIG_DIR=./config/env  pm2 start  bin/www --interpreter ./node_modules/.bin/babel-node",
+    "test": "cross-env  NODE_CONFIG_DIR=./config/env ./node_modules/.bin/ava  --timeout 200000 ",
     "commit": "commit-wizard",
     "standard": "standard --fix"
   },
   "dependencies": {
+    "airplake-privilege": "^1.0.1",
     "body-parser": "~1.16.0",
     "co": "^4.6.0",
     "config": "^1.25.1",
@@ -20,18 +20,25 @@
     "debug": "~2.6.0",
     "dotenv": "^4.0.0",
     "express": "~4.14.1",
+    "express-graphql": "^0.6.3",
+    "faker": "^4.1.0",
     "glob": "^7.1.1",
+    "graphql": "^0.9.1",
     "immutable": "^3.8.1",
+    "joi": "^10.3.1",
     "lodash": "^4.17.4",
     "log4js": "^1.1.1",
     "method-override": "^2.3.7",
+    "mocha": "^3.2.0",
     "morgan": "~1.7.0",
     "mysql": "^2.13.0",
     "request": "^2.80.0",
     "rx": "^4.1.0",
     "sequelize": "^3.30.2",
     "serve-favicon": "~2.3.2",
-    "sort-route-addresses": "^0.0.2"
+    "should": "^11.2.1",
+    "sort-route-addresses": "^0.0.2",
+    "supertest": "^3.0.0"
   },
   "devDependencies": {
     "ava": "^0.18.2",
@@ -39,6 +46,7 @@
     "babel-preset-env": "^1.2.2",
     "nodemon": "^1.11.0",
     "pre-git": "^3.14.0",
+    "source-map-support": "^0.4.14",
     "standard": "^9.0.2"
   },
   "config": {
@@ -46,7 +54,6 @@
       "commit-msg": "",
       "pre-commit": [
         "npm run standard",
-        "npm test",
         "git add ."
       ],
       "pre-push": [],

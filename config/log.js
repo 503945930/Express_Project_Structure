@@ -16,6 +16,20 @@ module.exports = {
       maxLogSize: 20480,
       backups: 3,
       category: 'init'
+    },
+    {
+      type: 'file',
+      filename: 'logs/mysql.log',
+      maxLogSize: 20480,
+      backups: 3,
+      category: 'mysql'
+    },
+    {
+      type: 'file',
+      filename: 'logs/userController.log',
+      maxLogSize: 20480,
+      backups: 3,
+      category: 'userController'
     }
   ]
 }

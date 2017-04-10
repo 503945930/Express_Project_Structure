@@ -9,6 +9,7 @@ module.exports = {
     define: {
       timestamps: false
     },
-    timezone: '+08:00'
+    timezone: '+08:00',
+    logging: true
   }
 }
